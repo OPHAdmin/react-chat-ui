@@ -82,13 +82,19 @@ export default class ChatFeed extends React.Component {
       return null;
     });
 
+    const bubbleStylesTyping = {
+      userBubble: {},
+      chatbubble: {"width":"15%"},
+      text: {"overflow":"hidden","verticalAlign":"bottom","WebkitAnimation":"ellipsis steps(4,end) 900ms infinite","animation":"ellipsis steps(4,end) 900ms infinite","width":"0" }
+    }
+
     // Other end is typing...
     if (isTyping) {
       messageNodes.push(
         <div key="isTyping" style={{ ...styles.chatbubbleWrapper }}>
           <ChatBubble
             message={new Message({ id: 1, message: '...', senderName: '' })}
-            bubbleStyles={bubbleStyles}
+            bubbleStyles={bubbleStylesTyping}
           />
         </div>
       );
